@@ -1,5 +1,4 @@
 const express = require('express');
-const { appendFileSync } = require('fs');
 const path = require('path');
 const api = require('./routes/index.js');
 
