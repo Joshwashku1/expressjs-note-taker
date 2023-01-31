@@ -10,6 +10,16 @@ notes.get('/', (req,res) => {
     readFromFile('./db/db.json').then((data) => res.json(JSON.parse(data)));
 });
 
+notes.get('/:notes_id', (req,res) => {
+    console.info(`${req.method} request recieved for note id`);
+    const noteId = req.params.notes_id;
+    readFromFile('./db/db.json')
+        .then((data) => JSON.parse(data))
+        .then((json) => {
+            
+        });
+});
+
 // POST route for creating notes
 notes.post('/', (req,res) => {
     console.info(`${req.method} request recieved to add a note`);
@@ -30,5 +40,7 @@ notes.post('/', (req,res) => {
         res.errored('Error in adding note');
     }
 });
+
+
 
 module.exports = notes;
